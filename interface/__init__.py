@@ -11,4 +11,4 @@ def opcoes(*opcoes):
         lista_opcoes.append(o)
     
     for n , l in enumerate(lista_opcoes):
-        print(f"[{n}] - {l}")
+        print(f"[{n + 1}] - {l}")
