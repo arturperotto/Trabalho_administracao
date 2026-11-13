@@ -36,5 +36,4 @@ def validar_cpf(cpf: str) -> bool:
     if segundo_digito != numeros[10]:
         return False
 
-    print(cpf)
     return True

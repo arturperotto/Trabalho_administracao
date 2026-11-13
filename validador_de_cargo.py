@@ -10,8 +10,6 @@ def validador_nivel3(nome, cpf):
         cpfs.append(lista[1])
         cargos.append(lista[2])
 
-        print(nomes[n] , cpfs[n])
-
         if nome == nomes[n]:
             if cpf == cpfs[n]:
                 return True, cargos[n]
