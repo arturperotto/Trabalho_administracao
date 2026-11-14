@@ -8,12 +8,34 @@ import funcoes_cargos.funcoes_nivel1 as f1
 #destino = "C:/Users/User/Desktop/trabalho administracao/cartas_desligamento"
 #
 #arquivo_copiado = shutil.copy(arquivo , destino)
+import os
+import cv2
 
-nome = str(input("Nome do funcionário: "))
+def show_notes(cpf):
 
-while True:
-    cpf = str(input("CPF do funcionário: "))
-    if validador_cpf.validador_cpf(cpf):
-        cargo = str(input("Qual o cargo do funcionário: "))
-        nivel_cargo = str(input("Qual o nivel do cargo do funcionário: "))
-        f1.add_workers(nome , cpf , cargo , nivel_cargo)
+    pasta = f"pontos,folhas/{cpf}/atestados"
+
+    arquivos = os.listdir(pasta)
+
+    for i, arquivo in enumerate(arquivos):
+        if "txt" in arquivo:
+            pass
+
+        else:
+            print(f"{i + 1} - {arquivo}")
+
+    escolha = int(input("Qual atestado deseja abrir? "))
+
+    caminho = os.path.join(pasta, arquivos[escolha - 1])
+
+    imagem = cv2.imread(caminho)
+
+    if imagem is None:
+        print("Não foi possível abrir a imagem.")
+        return
+
+    cv2.imshow("Atestado", imagem)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+show_notes("16899535009")
