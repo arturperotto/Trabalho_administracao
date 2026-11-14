@@ -2,6 +2,7 @@ import interface as i
 import validador_cpf
 import validador_de_cargo  as vc
 import funcoes_cargos.funcoes_nivel1 as f1
+import funcoes_cargos.funcoes_nivel2_3 as f2
 from sys import exit
 from rich import print
 from time import sleep
@@ -10,9 +11,9 @@ nivel_cargo = 0
 
 while True:
     try:
-        i.menu("Eletronor")
+        i.menu("Empresa fictícia")
         i.opcoes("Entrar" , "Sair")
-        opcao = int(input("oq deseja: "))
+        opcao = int(input("O que deseja: "))
 
         if opcao == 1 or opcao == 2:
             break
@@ -62,63 +63,96 @@ print("  ")
 if nivel_cargo == 1:
     i.name_show(nome , "bold white")
 
-    while True:
-        print("O que gostaria de fazer: ")
-        i.opcoes("Adicionar funcionários" , "Demitir" , "Olhar pessoas cadastradas" , "mostrar atestados" , "mostrar ponto" , "sair")
-        opcao = int(input("O que deseja fazer hoje: "))
-        
-        if opcao == 1:
-            nome = str(input("Nome do funcionário: "))
+    try:
+        while True:
+            print("O que gostaria de fazer: ")
+            i.opcoes("Adicionar funcionários" , "Demitir" , "Olhar pessoas cadastradas" , "Mostrar atestados" , "Mostrar ponto" , "Sair")
+            opcao = int(input("O que deseja fazer hoje: "))
             
-            while True:
-                cpf = str(input("CPF do funcionário: "))
-                if validador_cpf.validar_cpf(cpf):
-                    cargo = str(input("Qual o cargo do funcionário: "))
-                    nivel_cargo = str(input("Qual o nivel do cargo do funcionário[1-3]: "))
-                    f1.add_workers(nome , cpf , cargo , nivel_cargo)
-                    break
-
-                else:
-                    print("[bold red]informação inválida[/]")
-        
-        elif opcao == 2:
+            if opcao == 1:
                 nome = str(input("Nome do funcionário: "))
+                
                 while True:
                     cpf = str(input("CPF do funcionário: "))
-                    if validador_cpf(cpf):
-                        f1.delete_workers(nome , cpf)  
+                    if validador_cpf.validar_cpf(cpf):
+                        cargo = str(input("Qual o cargo do funcionário: "))
+                        nivel_cargo = str(input("Qual o nivel do cargo do funcionário[1-3]: "))
+                        f1.add_workers(nome , cpf , cargo , nivel_cargo)
+                        break
 
                     else:
-                        print("[bold red]infromação inválda[/]")
-                        sleep(1)
+                        print("[bold red]Informação inválida[/]")
+            
+            elif opcao == 2:
+                    nome = str(input("Nome do funcionário: "))
+                    while True:
+                        cpf = str(input("CPF do funcionário: "))
+                        if validador_cpf(cpf):
+                            f1.delete_workers(nome , cpf)  
 
-        elif opcao == 3:
-            while True:
-                f1.see_persons()
-                opcao = str(input("deseja sair[S/N]: ")).upper()
+                        else:
+                            print("[bold red]Infromação inválda[/]")
+                            sleep(1)
 
-                if opcao == "S":
-                    break
+            elif opcao == 3:
+                while True:
+                    f1.see_persons()
+                    opcao = str(input("Deseja sair[S/N]: ")).upper()
 
-                elif opcao == "N":
-                    pass
+                    if opcao == "S":
+                        break
 
-        elif opcao == 4:
-            cpf = str(input("digite o cpf do funcionário: "))
-            if validador_cpf.validar_cpf(cpf):
-                f1.show_notes(cpf)
-                print(" ")
+                    elif opcao == "N":
+                        pass
 
-        elif opcao == 5:
-            cpf = str(input("Digite o cpf do funcionário: "))
-            if validador_cpf.validar_cpf(cpf):
-                f1.show_points(cpf)
+            elif opcao == 4:
+                cpf = str(input("Digite o cpf do funcionário: "))
+                if validador_cpf.validar_cpf(cpf):
+                    f1.show_notes(cpf)
+                    print(" ")
 
-        elif opcao == 6:
-            break
+            elif opcao == 5:
+                cpf = str(input("Digite o cpf do funcionário: "))
+                if validador_cpf.validar_cpf(cpf):
+                    f1.show_points(cpf)
+
+            elif opcao == 6:
+                break
+
+            else:
+                print("[bold red]Opção inválida[/]")
+
+    except:
+        print("[bold red]Opção inválida[/]")
 
 elif nivel_cargo == 2:
-    pass
+    i.name_show(nome)
+
+    try:
+        while True:
+            i.opcoes("Bater ponto - entrada" , "Bater ponto - saída" , "Cadastrar atestado" , "Ver folha de pagamento" ,"Sair")
+            opcao = int(input("O que deseja fazer hoje: "))
+
+            if opcao == 1:
+                f2.clock_in(cpf)
+
+            elif opcao == 2:
+                f2.clock_out(cpf)
+
+            elif opcao == 3:
+                f2.put_note(cpf)
+
+            elif opcao == 4:
+                f2.see_payroll(cpf)
+
+            elif opcao == 5:
+                break
+
+            else:
+                print("[bold red]opção inválida[/]")
+    
+    except Exception as erro:
+        print(type(erro).__name__)
 
 elif nivel_cargo == 3:
     pass

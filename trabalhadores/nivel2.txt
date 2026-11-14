@@ -1,3 +1,4 @@
 Romarinho,52998224725,supervisor,ativo
 Alberto,11144477735,encarregado padaria
 Gr�gory,12345678909,supervisor,ativo
+Artur,52998224725,supervisor,ativo

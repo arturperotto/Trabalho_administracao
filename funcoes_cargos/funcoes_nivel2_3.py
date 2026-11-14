@@ -24,11 +24,11 @@ def put_note(cpf):
     a.write(f"*atestado dia {dia}\n")
 
     arquivo  = filedialog.askopenfilename()
-    destino = f"pontos,folhas/{cpf}/folhas_de_pagamento"
+    destino = f"pontos,folhas/{cpf}/atestados/"
     arquivo_copiado = shutil.copy(arquivo , destino)
 
-def post_payroll(cpf):
-    pasta = f"pontos,folhas/{cpf}/folhas_de_pagamento"
+def see_payroll(cpf):
+    pasta = f"pontos,folhas/{cpf}/folha_pagamento/"
 
     arquivos = os.listdir(pasta)
 
@@ -37,7 +37,7 @@ def post_payroll(cpf):
             pass
 
         else:
-            print(f"{i + 1} - {arquivo}")
+            print(f"{i} - {arquivo}")
 
     escolha = int(input("Qual atestado deseja abrir: "))
 

@@ -127,7 +127,7 @@ def show_points(cpf):
             pass
 
         else:
-            print(f"{i + 1} - {arquivo}")
+            print(f"{i} - {arquivo}")
 
     escolha = int(input("Qual ponto deseja abrir: "))
 
@@ -153,7 +153,7 @@ def show_notes(cpf):
             pass
 
         else:
-            print(f"{i + 1} - {arquivo}")
+            print(f"{i} - {arquivo}")
 
     escolha = int(input("Qual atestado deseja abrir: "))
 
@@ -174,5 +174,3 @@ def post_payroll(cpf):
     destino = f"pontos,folhas/{cpf}/folhas_de_pagamento"
     
     arquivo_copiado = shutil.copy(arquivo , destino)
-
-post_payroll("16899535009")
