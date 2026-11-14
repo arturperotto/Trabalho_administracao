@@ -1,2 +1,2 @@
-Romarinho,52998224725,supervisor
-Alberto,11144477735,encarregado padaria
+Romarinho,52998224725,supervisor,ativo
+Alberto,11144477735,encarregado padariaa,ativo

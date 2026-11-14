@@ -1,9 +1,10 @@
 import interface as i
 import validador_cpf
 import validador_de_cargo  as vc
+import funcoes_cargos.funcoes_nivel1 as f1
 from sys import exit
-from time import sleep
 from rich import print
+from time import sleep
 
 while True:
     try:
@@ -54,3 +55,29 @@ if opcao == 1:
 if opcao == 2:
     exit
 
+print("  ")
+
+if nivel_cargo == 1:
+    i.name_show(nome , "bold white")
+    print("O que gostaria de fazer: ")
+    i.opcoes("Adicionar funcionários" , "Demitir" , "Olhar pessoas cadastradas" )
+    opcao = int(input("O que deseja fazer hoje: "))
+    
+    if opcao == 1:
+        nome = str(input("Nome do funcionário: "))
+        
+        while True:
+            cpf = str(input("CPF do funcionário: "))
+            if validador_cpf(cpf):
+                cargo = str(input("Qual o cargo do funcionário: "))
+                nivel_cargo = str(input("Qual o nivel do cargo do funcionário: "))
+                f1.add_workers(nome , cpf , cargo , nivel_cargo)
+            
+            else:
+                pass
+
+elif nivel_cargo == 2:
+    pass
+
+elif nivel_cargo == 3:
+    pass
