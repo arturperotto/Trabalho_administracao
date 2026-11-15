@@ -11,7 +11,7 @@ nivel_cargo = 0
 
 while True:
     try:
-        i.menu("Empresa fictícia")
+        i.show_company_name()
         i.opcoes("Entrar" , "Sair")
         opcao = int(input("O que deseja: "))
 
@@ -66,7 +66,7 @@ if nivel_cargo == 1:
     try:
         while True:
             print("O que gostaria de fazer: ")
-            i.opcoes("Adicionar funcionários" , "Demitir" , "Olhar pessoas cadastradas" , "Mostrar atestados" , "Mostrar ponto" , "Sair")
+            i.opcoes("Adicionar funcionários" , "Demitir" , "Olhar pessoas cadastradas" , "Mostrar atestados" , "Mostrar ponto", "Mudar nome da empresa" , "Sair")
             opcao = int(input("O que deseja fazer hoje: "))
             
             if opcao == 1:
@@ -76,7 +76,7 @@ if nivel_cargo == 1:
                     cpf = str(input("CPF do funcionário: "))
                     if f1.path_exist(cpf):
                         print("cpf já registrado")
-                        
+
                     else:
                         if validador_cpf.validar_cpf(cpf):
                             cargo = str(input("Qual o cargo do funcionário: "))
@@ -124,6 +124,10 @@ if nivel_cargo == 1:
                     f1.show_points(cpf)
 
             elif opcao == 6:
+                novo_nome = str(input("Digite o novo nome da sua empresa: "))
+                f1.change_company_name(novo_nome)
+
+            elif opcao == 7:
                 break
 
             else:
@@ -187,5 +191,5 @@ elif nivel_cargo == 3:
             else:
                 print("[bold red]Opção inválida[/]")
     
-    except Exception as erro:
-        print(type(erro).__name__)
+    except:
+        print("[bold red]Opção inválida[/]")

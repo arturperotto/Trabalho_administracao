@@ -17,3 +17,10 @@ def name_show(nome , color="white"):
     print(f"[{color}]olá senhor {nome}[/]")
     print("=" * 30)
 
+def show_company_name():
+    a = open("nome_empresa.txt")
+    nome = ""
+    for l in a:
+        nome = l
+
+    menu(nome , "bold blue")

@@ -195,3 +195,8 @@ def post_payroll(cpf):
     destino = f"pontos,folhas/{cpf}/folhas_de_pagamento"
     
     arquivo_copiado = shutil.copy(arquivo , destino)
+
+def change_company_name(nome_empresa):
+    a = open("nome_empresa.txt" , "wt+")
+    nome_empresa_novo = nome_empresa.upper()[0] + nome_empresa[1:]
+    a.write(nome_empresa_novo)
