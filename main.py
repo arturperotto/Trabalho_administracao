@@ -149,10 +149,36 @@ elif nivel_cargo == 2:
                 break
 
             else:
-                print("[bold red]opção inválida[/]")
+                print("[bold red]Opção inválida[/]")
     
     except Exception as erro:
         print(type(erro).__name__)
 
 elif nivel_cargo == 3:
-    pass
+    i.name_show(nome)
+
+    try:
+        while True:
+            i.opcoes("Bater ponto - entrada" , "Bater ponto - saída" , "Cadastrar atestado" , "Ver folha de pagamento" ,"Sair")
+            opcao = int(input("O que deseja fazer hoje: "))
+
+            if opcao == 1:
+                f2.clock_in(cpf)
+
+            elif opcao == 2:
+                f2.clock_out(cpf)
+
+            elif opcao == 3:
+                f2.put_note(cpf)
+
+            elif opcao == 4:
+                f2.see_payroll(cpf)
+
+            elif opcao == 5:
+                break
+
+            else:
+                print("[bold red]Opção inválida[/]")
+    
+    except Exception as erro:
+        print(type(erro).__name__)
