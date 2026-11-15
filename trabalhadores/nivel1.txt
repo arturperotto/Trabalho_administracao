@@ -1,2 +1,0 @@
-Romulu,16899535009,dono,ativo
-Marcio,12345678909,gerente,ativo

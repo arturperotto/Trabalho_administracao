@@ -1,0 +1,4 @@
+romulu,16899535009,dono,ativo
+marcio,12345678909,gerente,ativo
+sthefanie,03456689012,bobesponja,inativo,15/11/2026
+pedro felipe de silva,26916697857,chefe,ativo

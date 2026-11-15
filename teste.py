@@ -37,5 +37,3 @@ def show_notes(cpf):
     cv2.imshow("Atestado", imagem)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
-
-show_notes("16899535009")

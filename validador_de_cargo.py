@@ -19,7 +19,7 @@ def validador_nivel3(nome, cpf):
     return False
 
 def validadaor_nivel2(nome, cpf):
-    a = open("trabalhadores/nivel2.txt", encoding="UTF-8")
+    a = open("trabalhadores/nivel2.txt", encoding="cp1252")
     nomes = []
     cpfs = []
     cargos = []
@@ -39,7 +39,7 @@ def validadaor_nivel2(nome, cpf):
     return False
 
 def validadaor_nivel1(nome, cpf):
-    a = open("trabalhadores/nivel1.txt", encoding="UTF-8")
+    a = open("trabalhadores/nivel1.txt", encoding="cp1252")
     nomes = []
     cpfs = []
     cargos = []

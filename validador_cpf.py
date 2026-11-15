@@ -3,7 +3,7 @@ import re
 def limpar_cpf(cpf: str) -> str:
     return re.sub(r"\D", "", cpf)
 
-def validar_cpf(cpf: str) -> bool:
+def validar_cpf(cpf: str):
     cpf = limpar_cpf(cpf)
 
     if len(cpf) != 11:
